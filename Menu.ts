@@ -1,9 +1,17 @@
 import readlinesync = require('readline-sync');
 import { colors } from './src/util/Colors';
+import { Conta  } from './src/model/Conta';
 
 export function main(){
     
     let opcao: number;
+
+    const conta: Conta = new Conta(1, 123, 1, "Adriana", 10000);
+    conta.visualizar();
+    conta.sacar(10500);
+    conta.visualizar();
+    conta.depositar(5000);
+    conta.visualizar();
 
     while(true){
 
@@ -43,42 +51,56 @@ export function main(){
             case 1:
                 console.log(colors.fg.whitestrong,
                     "\n\nCriar conta\n\n", colors.reset);
+                keyPress()
                 break;
 
             case 2:
                 console.log(colors.fg.whitestrong,
-                    "\n\nListar todas as contas\n\n", colors.reset);    
+                    "\n\nListar todas as contas\n\n", colors.reset);
+                keyPress()        
                 break;
 
             case 3:
                 console.log(colors.fg.whitestrong,
                     "\n\nConsultar dados da conta - por número\n\n", colors.reset);
+                keyPress()    
                 break;
                 
             case 4:
                 console.log(colors.fg.whitestrong,
                     "\n\nAtualizar dados da conta\n\n", colors.reset);
+                keyPress()    
                 break;
                 
             case 5:
                 console.log(colors.fg.whitestrong,
                     "\n\nApagar uma conta\n\n", colors.reset);
+                keyPress()    
                 break;
                 
             case 6:
                 console.log(colors.fg.whitestrong,
                     "\n\nSaque\n\n", colors.reset);
+                keyPress()    
                 break;
                 
             case 7:
                 console.log(colors.fg.whitestrong,
                     "\n\nDepósito\n\n", colors.reset);
+                keyPress()    
                 break;
                 
             case 8:
                 console.log(colors.fg.whitestrong,
-                    "\nOpção Inválida!\n", colors.reset);
+                    "\n\nTranferência entre Contas\n\n", colors.reset);
+                keyPress()    
                 break;
+
+             default:
+                console.log(colors.fg.whitestrong,
+                    "\nOpção Inválida!\n", colors.reset);
+                keyPress()    
+                break;   
 
         }
     }
@@ -98,4 +120,4 @@ function keyPress(): void {
     readlinesync.prompt();
 }
 
-main()
+main();
